@@ -38,11 +38,12 @@ function getRestaurants(getRestaurantsURL){
     .then((dataArray) => {
         // console.log(dataArray);
         dataArray.sort(function(a, b){
-            return a.my_rating - b.my_rating;
+            return b.my_rating - a.my_rating;
         });
         dataArray.forEach((restaurant) => {
+            //data is ordered from highest rated to lowest
             //Put on page here for show all restaurants
-            
+            // box.innerHTML += `<div>${restaurantsData.my_rating}</div>`;
             // box.innerHTML += `<div>${restaurantsData.restaurant}</div>`;
             restaurantsData.push(restaurant);
         });
@@ -58,6 +59,29 @@ console.log(restaurantsData);
 
 
 
+//added more notes to clarify 
+// //get the data from restaurants json
+// function getRestaurants(getRestaurantsURL){ // function passing parameter URL to firebase
+//     return $.ajax({ 
+//         url: getRestaurantsURL, //places firebase URL here
+//         type: 'GET',
+//     })
+//     .then((dataArray) => { //THEN parameter of dataArray established
+//         // console.log(dataArray);
+//         dataArray.sort(function(a, b){ //dataArray  is then sorted
+//             return a.my_rating - b.my_rating; //largest to smallest rating
+//         });
+//         dataArray.forEach((restaurant) => { //after sort, for each restaurnt
+//             //Put on page here for show all restaurants
+            
+//             // box.innerHTML += `<div>${restaurantsData.restaurant}</div>`;
+//             restaurantsData.push(restaurant); //push each restaurant into an array
+//             //call individual items from the restaurantsData array
+//             //for each, store name and rating of restaurant
+//             //print to dom inside .box 
+//         });
+//     })
+// }
 
 
 
